@@ -42,6 +42,31 @@ console.log(fullName);
 var greeting = "My name is "+fullName;
 console.log(greeting);
 
+console.log("Using functions: ");
+
+//function to make square numbers
+function makeSquare(theNumb) {
+    var squared = Math.pow(theNumb, 2);
+    return squared;
+}
+
+var try01 = makeSquare(3);
+
+console.log(try01);
+console.log(makeSquare(67));
+console.log(makeSquare(9));
+
+//function on my own
+//function to combine 3 parts into full name
+function nameCombine(first, middle, last) {
+    var name = first + " " + middle + " " + last;
+    return name;
+}
+
+console.log(nameCombine("John", "Eric", "Vela"));
+console.log(nameCombine("Christian", "Clay", "McDonald"));
+console.log(nameCombine("Robert", "\"Beto\"", "O\'Rourke"));
+
 </script>  
 
 </body>
