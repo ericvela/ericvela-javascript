@@ -46,7 +46,7 @@ console.log("Using functions: ");
 
 //function to make square numbers
 function makeSquare(theNumb) {
-    var squared = Math.pow(theNumb, 2);
+    let squared = Math.pow(theNumb, 2);
     return squared;
 }
 
@@ -58,15 +58,75 @@ console.log(makeSquare(9));
 
 //function on my own
 //function to combine 3 parts into full name
-function nameCombine(first, middle, last) {
+function makeName(first, middle, last) {
     var name = first + " " + middle + " " + last;
     return name;
 }
 
-console.log(nameCombine("John", "Eric", "Vela"));
-console.log(nameCombine("Christian", "Clay", "McDonald"));
-console.log(nameCombine("Robert", "\"Beto\"", "O\'Rourke"));
+console.log(makeName("John", "Eric", "Vela"));
+console.log(makeName("Ted", "Rafael", "Cruz"));
+console.log(makeName("Robert", "\"Beto\"", "O'Rourke"));
 
+console.log('Making better name function:');
+
+//function with if/else to add a period to a middle initial
+function makeBetterName(firstName, middleName, lastName) {
+    /*BONUS - checks if middle name is empty, skips it in fullName return
+
+    if the last name parameter is skipped when calling function the 2nd entered parameter (which is logged as middle name) becomes the last name variable, 
+    first and last name returned. */
+    if (!lastName)
+    {
+        let lastName = middleName;
+        let fullName = firstName + " " + lastName;
+        return fullName;
+    }
+    //if the middle name has a parameter, but it is empty, only the first and last name are returned as the full name.
+    else if (!middleName) {
+        let fullName = firstName + " " + lastName;
+        return fullName;
+    }
+    //returns a period after middle name intial
+    else if (middleName.length === 1) {
+        middleName = middleName + "."; 
+        let fullName = firstName + " " + middleName + " " + lastName;
+        return fullName;
+    }
+    //returns all 3 names if all have full values
+    else {
+        let fullName = firstName + " " + middleName + " " + lastName;
+        return fullName;
+    }
+}
+
+//tests a full middle name, an initial, AND a blank middle name
+console.log(makeBetterName("Joan", "Marie", "Larkin"));
+console.log(makeBetterName("Donald", "J", "Trump"));
+console.log(makeBetterName("Eric", "", "Vela"));
+console.log(makeBetterName("Eric", "Vela"));
+
+//flow control function on my own
+//function to return victor between 2 scores
+
+function victory(home, away) {
+
+    if (home === away){
+
+        return "The home team and the away team tied.";
+    }
+    else if (away > home) {
+
+        return "The away team won.";
+    }
+    else {
+        return "The home team won.";
+    }
+}
+
+//tests for either team's victory and a tie. 
+console.log(victory(25, 10));
+console.log(victory(5,30));
+console.log(victory(10, 10));
 </script>  
 
 </body>
