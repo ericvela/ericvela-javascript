@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <form id="nameForm">
+    <p>First name: <input type="text" name="first"></p>
+    <p>Middle name: <input type="text" name="middle"></p>
+    <p>Last name: <input type="text" name="last"></p>
+    <input type="button" value="Make name" onclick = "makeBetterName()">
+  </form> 
+    
+    <h3 id="name">Name will go here</h3>
+    
+    <script>
+      function makeBetterName() {
+          let firstName = document.getElementById("nameForm").first.value;
+          let middleName = document.getElementById("nameForm").middle.value;
+          let lastName = document.getElementById("nameForm").last.value;
+    /*BONUS - checks if middle name is empty, skips it in fullName return
+    if the last name parameter is skipped when calling function the 2nd entered parameter (which is logged as middle name) becomes the last name variable, 
+    first and last name returned. */
+    if (!lastName)
+    {
+        let lastName = middleName;
+        let fullName = firstName + " " + lastName;
+        document.getElementById("name").innerHTML = fullName;
+
+    }
+    //if the middle name has a parameter, but it is empty, only the first and last name are returned as the full name.
+    else if (!middleName) {
+        let fullName = firstName + " " + lastName;
+        document.getElementById("name").innerHTML = fullName;
+
+    }
+    //returns a period after middle name intial
+    else if (middleName.length === 1) {
+        middleName = middleName + "."; 
+        let fullName = firstName + " " + middleName + " " + lastName;
+        document.getElementById("name").innerHTML = fullName;
+    }
+    //returns all 3 names if all have full values
+    else {
+        let fullName = firstName + " " + middleName + " " + lastName;
+        document.getElementById("name").innerHTML = fullName;
+
+    }
+}
+    </script>
+</body>
+</html>
